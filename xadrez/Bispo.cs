@@ -9,6 +9,6 @@ namespace ChessProject.xadrez
         {
         }
         public override string ToString() => "B";
-    {
+    
     }
 }
