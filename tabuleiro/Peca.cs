@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using tabuleiro;
+﻿using tabuleiro;
 
 namespace ChessProject.tabuleiro
 {
@@ -14,14 +9,14 @@ namespace ChessProject.tabuleiro
         public int QtdMovimentos { get; protected set; }
         public Tabuleiro Tabuleiro { get; protected set; }
 
-        public Peca(Posicao posicao,
-                    Tabuleiro tabuleiro,
+        public Peca(Tabuleiro tabuleiro,
                     CorEnum cor)
         {
-            Posicao = posicao;
+            Posicao = null;
             Cor = cor;
             QtdMovimentos = 0;
             Tabuleiro = tabuleiro;
         }
+
     }
 }

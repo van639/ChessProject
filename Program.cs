@@ -1,10 +1,13 @@
-﻿namespace ChessProject
+﻿using ChessProject.tabuleiro;
+
+namespace ChessProject
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Tabuleiro tabuleiro = new Tabuleiro(8, 8);
+            Tela.ImprimirTabuleiro(new Tabuleiro(8, 8));
         }
     }
 }
