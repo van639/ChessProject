@@ -2,7 +2,7 @@
 
 namespace ChessProject.tabuleiro
 {
-    public class Peca
+    public abstract class Peca
     {
         public Posicao? Posicao { get; set; }
         public CorEnum Cor { get; protected set; }
@@ -17,6 +17,11 @@ namespace ChessProject.tabuleiro
             QtdMovimentos = 0;
             Tabuleiro = tabuleiro;
         }
+
+        public abstract bool[,] MovimentosPossiveis();
+
+        public void IncrementarQtdMovimentos() => QtdMovimentos++;
+        
 
     }
 }

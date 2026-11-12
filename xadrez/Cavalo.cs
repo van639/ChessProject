@@ -8,6 +8,12 @@ namespace ChessProject.xadrez
         public Cavalo(Tabuleiro tabuleiro, CorEnum cor) : base(tabuleiro, cor)
         {
         }
+
+        public override bool[,] MovimentosPossiveis()
+        {
+            throw new NotImplementedException();
+        }
+
         public override string ToString() => "C";
     }
 }

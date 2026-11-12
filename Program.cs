@@ -1,6 +1,7 @@
 ﻿using ChessProject.tabuleiro;
 using ChessProject.xadrez;
 using tabuleiro;
+using xadrez;
 
 namespace ChessProject
 {
@@ -10,14 +11,26 @@ namespace ChessProject
         {
             try
             {
-                //PosicaoXadrez posicaoXadrez = new PosicaoXadrez('a', 1);
-                //Console.WriteLine(posicaoXadrez.ConverterPosicao());
-                Tabuleiro tabuleiro = new Tabuleiro(8, 8);
-                tabuleiro.ColocarPeca(new Torre(tabuleiro, CorEnum.Preta), new Posicao(0, 0));
-                tabuleiro.ColocarPeca(new Torre(tabuleiro, CorEnum.Preta), new Posicao(1, 3));
-                tabuleiro.ColocarPeca(new Rei(tabuleiro, CorEnum.Preta), new Posicao(0, 1));
-                tabuleiro.ColocarPeca(new Rei(tabuleiro, CorEnum.Branca), new Posicao(3, 1));
-                Tela.ImprimirTabuleiro(tabuleiro);
+                PartidaDeXadrez partidaDeXadrez = new PartidaDeXadrez();
+                while (!partidaDeXadrez.Terminada) 
+                {
+                    Console.Clear();
+                    Tela.ImprimirTabuleiro(partidaDeXadrez.tabuleiro);
+                    Console.WriteLine();
+                    Console.Write("Origem: ");
+                    Posicao origem = Tela.LerPosicaoXadrez().ConverterPosicao();
+
+                    bool[,] posicoesPossiveis = partidaDeXadrez.tabuleiro.PegarPeca(origem).MovimentosPossiveis();
+                    Console.Clear();
+                    Tela.ImprimirTabuleiro(partidaDeXadrez.tabuleiro, posicoesPossiveis);
+
+                    Console.WriteLine();
+                    Console.Write("Destino: ");
+                    Posicao destino = Tela.LerPosicaoXadrez().ConverterPosicao();
+
+                    partidaDeXadrez.ExecutarMovimento(origem, destino);
+                }
+                
             }
             catch (TabuleiroException e)
             {
