@@ -6,11 +6,39 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using tabuleiro;
+using xadrez;
 
 namespace ChessProject
 {
     public class Tela
     {
+        public static void ImprimirPartida(PartidaDeXadrez partidaDeXadrez)
+        {
+            ImprimirTabuleiro(partidaDeXadrez.Tabuleiro);
+            Console.WriteLine();
+            ImprimirPecasCapturadas(partidaDeXadrez);
+            Console.WriteLine();
+            Console.WriteLine($"Turno: {partidaDeXadrez.Turno}");
+            Console.WriteLine($"Aguardando jogada: {partidaDeXadrez.JogadorAtual}");
+        }
+
+        private static void ImprimirPecasCapturadas(PartidaDeXadrez partidaDeXadrez)
+        {
+            Console.WriteLine("Peças capturadas:");
+            Console.Write("Brancas");
+            ImprimirConjunto(partidaDeXadrez.PecasJaCapturadas(CorEnum.Branca));
+            var corOriginal = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write("Pretas");
+            ImprimirConjunto(partidaDeXadrez.PecasJaCapturadas(CorEnum.Preta));
+            Console.ForegroundColor = corOriginal;
+        }
+
+        private static void ImprimirConjunto(HashSet<Peca> pecas)
+        {
+            Console.WriteLine($"[{string.Join(", ",pecas)}]"); 
+        }
+
         public static void ImprimirTabuleiro(Tabuleiro tabuleiro)
         {
             var letras = new char[] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h' };
