@@ -22,6 +22,21 @@ namespace ChessProject.tabuleiro
 
         public void IncrementarQtdMovimentos() => QtdMovimentos++;
         
+        public bool ExisteMovimentosPossiveis()
+        {
+            var mat = MovimentosPossiveis();
+            for (int i = 0; i < Tabuleiro.Colunas; i++)
+            {
+                for (int x = 0; x < Tabuleiro.Linhas; x++)
+                {
+                    if (mat[x, i])
+                        return true;
+                }
+            }
+            return false;
+        }
+
+        public bool PodeMoverPara(Posicao posicao) => MovimentosPossiveis()[posicao.Linha, posicao.Coluna];
 
     }
 }

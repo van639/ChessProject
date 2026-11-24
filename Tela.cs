@@ -15,10 +15,10 @@ namespace ChessProject
         {
             var letras = new char[] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h' };
 
-            for (int i = 0; i < tabuleiro.Linha; i++)
+            for (int i = 0; i < tabuleiro.Linhas; i++)
             {
                 Console.Write($"{8 - i} ");
-                for (int j = 0; j < tabuleiro.Coluna; j++)
+                for (int j = 0; j < tabuleiro.Colunas; j++)
                 {
                     ImprimirPeca(tabuleiro.PegarPeca(i, j));
 
@@ -33,10 +33,10 @@ namespace ChessProject
             ConsoleColor fundoOriginal = Console.BackgroundColor;
             ConsoleColor fundoAlterado = ConsoleColor.DarkGray;
 
-            for (int i = 0; i < tabuleiro.Linha; i++)
+            for (int i = 0; i < tabuleiro.Linhas; i++)
             {
                 Console.Write($"{8 - i} ");
-                for (int j = 0; j < tabuleiro.Coluna; j++)
+                for (int j = 0; j < tabuleiro.Colunas; j++)
                 {
                     Console.BackgroundColor = posicoesPossiveis[i, j] ? fundoAlterado : fundoOriginal;
                     ImprimirPeca(tabuleiro.PegarPeca(i, j));

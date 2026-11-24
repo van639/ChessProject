@@ -16,7 +16,7 @@ namespace ChessProject.xadrez
 
         public override bool[,] MovimentosPossiveis()
         {
-            bool[,] mat = new bool[Tabuleiro.Linha, Tabuleiro.Coluna];
+            bool[,] mat = new bool[Tabuleiro.Linhas, Tabuleiro.Colunas];
             Posicao posicao = new Posicao(0, 0);
 
             //nordeste

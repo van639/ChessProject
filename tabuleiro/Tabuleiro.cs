@@ -2,14 +2,14 @@
 {
     public class Tabuleiro
     {
-        public int Linha { get; set; }
-        public int Coluna { get; set; }
+        public int Linhas { get; set; }
+        public int Colunas { get; set; }
         private Peca[,] Pecas;
 
         public Tabuleiro(int linha, int colunas)
         {
-            this.Linha = linha;
-            Coluna = colunas;
+            Linhas = linha;
+            Colunas = colunas;
             Pecas = new Peca[linha, colunas];
         }
 
@@ -50,7 +50,7 @@
 
         public bool PosicaoValida(Posicao posicao)
         {
-            if (posicao.Linha < 0 || posicao.Linha >= Linha || posicao.Coluna < 0 || posicao.Coluna >= Coluna)
+            if (posicao.Linha < 0 || posicao.Linha >= Linhas || posicao.Coluna < 0 || posicao.Coluna >= Colunas)
                return false;
             
             return true;

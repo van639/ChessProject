@@ -9,6 +9,12 @@ namespace ChessProject.xadrez
         {
         }
 
+        public bool PodeMover(Posicao posicao)
+        {
+            Peca peca = Tabuleiro.PegarPeca(posicao);
+            return peca == null || peca.Cor != Cor;
+        }
+
         public override bool[,] MovimentosPossiveis()
         {
             throw new NotImplementedException();
